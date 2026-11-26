@@ -1,0 +1,2749 @@
+
+/* ========================================
+   25 PEQUEÑOS MOTIVOS PARA SONREÍR
+   EXPERIENCIA DE BIENVENIDA
+======================================== */
+
+.welcome-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: max(45px, env(safe-area-inset-top))
+    24px
+    max(30px, env(safe-area-inset-bottom));
+
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      rgba(247, 226, 225, 0.8),
+      transparent 48%
+    ),
+    linear-gradient(
+      145deg,
+      #fffaf7 0%,
+      #fdf2ef 48%,
+      #f8e8e7 100%
+    );
+
+  color: #49363d;
+}
+
+.welcome-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+.glow-one {
+  background: #edcbd5;
+  top: 5%;
+  left: -150px;
+}
+
+.glow-two {
+  background: #e9d7c0;
+  bottom: 0;
+  right: -150px;
+}
+
+.floating-particle {
+  position: absolute;
+  color: #bd947f;
+  font-family: serif;
+  font-size: 22px;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #a47a7e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.welcome-eyebrow svg {
+  color: #c19b79;
+}
+
+/* ========================================
+   REGALO PRINCIPAL
+======================================== */
+
+.gift-stage {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.gift-halo {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(231, 191, 194, 0.4),
+    rgba(255, 250, 247, 0) 70%
+  );
+}
+
+.hero-gift {
+  position: relative;
+  width: 174px;
+  height: 180px;
+  z-index: 2;
+  filter: drop-shadow(0 20px 18px rgba(113, 68, 76, 0.12));
+}
+
+.hero-gift-shadow {
+  position: absolute;
+  width: 190px;
+  height: 25px;
+  background: rgba(103, 67, 69, 0.14);
+  filter: blur(12px);
+  border-radius: 50%;
+  bottom: -8px;
+  left: -8px;
+}
+
+.hero-gift-box {
+  position: absolute;
+  width: 160px;
+  height: 125px;
+  left: 7px;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: 5px 5px 9px 9px;
+  background:
+    linear-gradient(
+      105deg,
+      #c98591 0%,
+      #e6b9bd 35%,
+      #d79ba6 70%,
+      #bb7d89 100%
+    );
+  box-shadow:
+    inset 8px 0 12px rgba(255,255,255,0.12),
+    inset -8px 0 12px rgba(104,49,60,0.10);
+}
+
+.hero-gift-ribbon {
+  position: absolute;
+  left: 68px;
+  width: 25px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #d6b47e,
+    #f1dfb7,
+    #c9a16c
+  );
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+
+.hero-gift-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9e8dc;
+  padding-top: 12px;
+}
+
+.hero-gift-lid {
+  position: absolute;
+  width: 178px;
+  height: 35px;
+  top: 32px;
+  left: -2px;
+  z-index: 4;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #f0cbd0,
+    #dba7b0
+  );
+  box-shadow:
+    0 5px 10px rgba(110, 65, 70, 0.18),
+    inset 0 3px 5px rgba(255,255,255,0.4);
+}
+
+.hero-gift-lid-ribbon {
+  position: absolute;
+  width: 25px;
+  height: 100%;
+  left: 75px;
+  background: linear-gradient(
+    90deg,
+    #d6b47e,
+    #f3e1bb,
+    #c9a16c
+  );
+}
+
+.hero-gift-bow {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  top: -39px;
+  left: 39px;
+}
+
+.bow-loop {
+  position: absolute;
+  width: 38px;
+  height: 25px;
+  top: 7px;
+  border: 7px solid #c5a16e;
+  border-radius: 50% 50% 50% 8px;
+  background: linear-gradient(145deg, #f5e3c1, #c6a06c);
+}
+
+.bow-loop-left {
+  left: 7px;
+  transform: rotate(25deg);
+}
+
+.bow-loop-right {
+  right: 7px;
+  transform: scaleX(-1) rotate(25deg);
+}
+
+.bow-knot {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 13px;
+  left: 42px;
+  border-radius: 5px;
+  background: #b98f5b;
+  z-index: 3;
+}
+
+.bow-tail {
+  position: absolute;
+  width: 13px;
+  height: 25px;
+  top: 22px;
+  background: linear-gradient(90deg, #c9a16c, #f1dfb7);
+  z-index: -1;
+}
+
+.bow-tail-left {
+  left: 33px;
+  transform: rotate(20deg);
+}
+
+.bow-tail-right {
+  right: 32px;
+  transform: rotate(-20deg);
+}
+
+.gift-decoration {
+  position: absolute;
+  z-index: 3;
+  font-size: 30px;
+  color: #c49a7d;
+}
+
+.decoration-left {
+  top: 60px;
+  left: 12%;
+}
+
+.decoration-right {
+  right: 12%;
+  bottom: 65px;
+  color: #c68e9d;
+}
+
+.gift-ground-decoration {
+  position: absolute;
+  bottom: 18px;
+  display: flex;
+  gap: 22px;
+  color: #c19b79;
+  font-size: 17px;
+}
+
+/* ========================================
+   TEXTOS
+======================================== */
+
+.welcome-copy {
+  width: 100%;
+}
+
+.welcome-pretitle {
+  margin: 0 0 10px;
+  color: #b17c88;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.welcome-copy h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(39px, 9vw, 53px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  color: #63434b;
+}
+
+.welcome-copy h1 span {
+  color: #b77d8b;
+  font-style: italic;
+}
+
+.welcome-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: #c4a078;
+}
+
+.welcome-divider span {
+  width: 45px;
+  height: 1px;
+  background: #e5cfc2;
+}
+
+.welcome-description {
+  max-width: 330px;
+  margin: 0 auto;
+  color: #856f71;
+  font-size: 14px;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.welcome-personal-note {
+  margin: 12px 0 0;
+  color: #b47d8b;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-style: italic;
+}
+
+/* ========================================
+   BOTÓN
+======================================== */
+
+.welcome-actions {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.welcome-button {
+  width: 100%;
+  max-width: 310px;
+  min-height: 56px;
+  padding: 0 24px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  background: linear-gradient(
+    115deg,
+    #b77d8b,
+    #a96d7d,
+    #c08b91
+  );
+  box-shadow: 0 9px 25px rgba(153, 92, 111, 0.24);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: box-shadow 0.3s ease;
+}
+
+.welcome-button:hover {
+  box-shadow: 0 12px 30px rgba(153, 92, 111, 0.34);
+}
+
+.button-arrow {
+  font-size: 20px;
+}
+
+.welcome-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 20px;
+  color: #b69b95;
+  font-size: 10px;
+  letter-spacing: 0.7px;
+}
+
+.welcome-footer svg {
+  color: #c78f9d;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 380px) {
+  .welcome-page {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .gift-stage {
+    height: 250px;
+  }
+
+  .hero-gift {
+    transform: scale(0.88);
+  }
+
+  .welcome-copy h1 {
+    font-size: 39px;
+  }
+
+  .welcome-description {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 700px) {
+  .welcome-page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .gift-stage {
+    height: 320px;
+  }
+
+  .hero-gift {
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-particle {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   CALENDARIO - ESTRUCTURA INICIAL
+======================================== */
+
+.calendar-page {
+  min-height: 100svh;
+  padding:
+    max(28px, env(safe-area-inset-top))
+    22px
+    max(30px, env(safe-area-inset-bottom));
+  background:
+    radial-gradient(
+      ellipse at 50% 10%,
+      #f8e8e8,
+      transparent 50%
+    ),
+    #fffaf7;
+  color: #63434b;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #98717b;
+  font-size: 12px;
+}
+
+.calendar-header-label {
+  color: #ad8790;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.calendar-intro {
+  text-align: center;
+  margin: 55px 0 35px;
+}
+
+.calendar-small-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #bd947c;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.calendar-intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 7vw, 42px);
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 17px 0;
+}
+
+.calendar-intro h1 span {
+  color: #b77d8b;
+  font-style: italic;
+}
+
+.calendar-intro p {
+  max-width: 340px;
+  margin: 0 auto;
+  color: #927e7d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.calendar-progress {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid #f0e1dc;
+  border-radius: 17px;
+  padding: 17px;
+  margin-bottom: 25px;
+}
+
+.calendar-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #927e7d;
+}
+
+.calendar-progress strong {
+  color: #a56f7c;
+}
+
+.progress-track {
+  height: 4px;
+  border-radius: 10px;
+  background: #f2e5e3;
+  margin: 13px 0 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #bd8794;
+}
+
+.calendar-progress small {
+  font-size: 10px;
+  color: #b29a94;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.calendar-gift-locked {
+  min-width: 0;
+  aspect-ratio: 0.88;
+  border: 1px solid #ead8d5;
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    #fffefd,
+    #f6e9e7
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #ad8790;
+  box-shadow: 0 4px 12px rgba(112, 75, 78, 0.05);
+}
+
+.calendar-gift-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  background: #f1dfdf;
+  color: #b77d8b;
+}
+
+.calendar-gift-locked > span {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+}
+
+.calendar-gift-locked:last-child {
+  background: linear-gradient(145deg, #f4e2e3, #ecd0d2);
+}
+
+.calendar-footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #ae9290;
+  font-size: 11px;
+}
+
+.calendar-footer-heart {
+  color: #bd8794;
+  font-size: 24px;
+}
+
+@media (max-width: 360px) {
+  .calendar-grid {
+    gap: 8px;
+  }
+
+  .calendar-page {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* ==========================================
+   SISTEMA VISUAL DE LOS 25 REGALOS
+========================================== */
+
+.gift-collection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+  width: 100%;
+}
+
+.gift-collection-item {
+  min-width: 0;
+}
+
+/* Tarjeta exterior */
+
+.gift-card {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 156px;
+  padding: 8px 5px 10px;
+  border: 1px solid rgba(222, 197, 190, 0.65);
+  border-radius: 15px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.88),
+    rgba(249,237,232,0.85)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 5px 16px rgba(111, 74, 76, 0.055);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gift-card:disabled {
+  cursor: default;
+}
+
+.gift-card-number {
+  position: relative;
+  z-index: 4;
+  font-family: 'Playfair Display', serif;
+  color: #98747a;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.gift-card-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 94px;
+}
+
+.gift-card-glow {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--gift-paper-light),
+    transparent 70%
+  );
+  opacity: 0.65;
+  filter: blur(8px);
+}
+
+/* Caja principal */
+
+.gift-object {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 70px;
+  height: 57px;
+  border-radius: 3px 3px 6px 6px;
+  background: linear-gradient(
+    110deg,
+    var(--gift-paper),
+    var(--gift-paper-light) 43%,
+    var(--gift-paper)
+  );
+  box-shadow:
+    inset 4px 0 6px rgba(255,255,255,0.16),
+    inset -4px 0 6px rgba(0,0,0,0.09);
+}
+
+/* Formas individuales */
+
+.gift-shape-square {
+  width: 68px;
+  height: 59px;
+}
+
+.gift-shape-wide {
+  width: 83px;
+  height: 48px;
+}
+
+.gift-shape-tall {
+  width: 59px;
+  height: 69px;
+}
+
+.gift-shape-small {
+  width: 55px;
+  height: 48px;
+}
+
+.gift-shape-wrapped {
+  width: 73px;
+  height: 58px;
+  border-radius: 12px;
+}
+
+/* Patrones decorativos */
+
+.gift-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.pattern-plain {
+  background: transparent;
+}
+
+.pattern-stars {
+  background-image:
+    radial-gradient(circle at 20% 25%, #fff5d9 1px, transparent 2px),
+    radial-gradient(circle at 72% 65%, #fff5d9 1.5px, transparent 2px),
+    radial-gradient(circle at 38% 82%, #fff5d9 1px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.pattern-hearts {
+  background-image:
+    radial-gradient(circle at 50% 45%, rgba(255,239,234,.8) 2px, transparent 3px);
+  background-size: 17px 17px;
+}
+
+.pattern-dots {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.85) 1.3px, transparent 2px);
+  background-size: 11px 11px;
+}
+
+.pattern-stripes {
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0px,
+    transparent 8px,
+    rgba(255,255,255,0.27) 9px,
+    rgba(255,255,255,0.27) 11px
+  );
+}
+
+.pattern-flowers {
+  background-image:
+    radial-gradient(circle at 20% 25%, #fff0dc 2px, transparent 3px),
+    radial-gradient(circle at 75% 70%, #fff0dc 2px, transparent 3px);
+  background-size: 27px 27px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.pattern-snow {
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 2px),
+    radial-gradient(circle, #fff 1px, transparent 2px);
+  background-size: 15px 15px, 24px 24px;
+  background-position: 0 0, 7px 8px;
+}
+
+.pattern-diamonds {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 10px,
+    rgba(255,255,255,.19) 10px 11px
+  );
+}
+
+.pattern-leaves {
+  background-image:
+    radial-gradient(ellipse, rgba(245,246,215,.6) 2px, transparent 3px);
+  background-size: 19px 13px;
+}
+
+/* Reflejo de la caja */
+
+.gift-side-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: rgba(255,255,255,0.18);
+}
+
+/* Cintas */
+
+.gift-ribbon-vertical {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 6px);
+  width: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--gift-ribbon),
+    var(--gift-ribbon-light),
+    var(--gift-ribbon)
+  );
+  box-shadow: 0 0 5px rgba(255,255,255,.1);
+}
+
+.gift-ribbon-horizontal {
+  position: absolute;
+  z-index: 2;
+  top: 43%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    180deg,
+    var(--gift-ribbon-light),
+    var(--gift-ribbon)
+  );
+}
+
+/* Tapa */
+
+.gift-lid {
+  position: absolute;
+  z-index: 4;
+  top: -5px;
+  left: -4%;
+  width: 108%;
+  height: 13px;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--gift-paper-light),
+    var(--gift-paper)
+  );
+  box-shadow: 0 3px 4px rgba(0,0,0,.12);
+}
+
+.gift-lid-ribbon {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 100%;
+  background: var(--gift-ribbon-light);
+}
+
+/* Moños */
+
+.gift-bow {
+  position: absolute;
+  z-index: 6;
+  top: -25px;
+  left: 50%;
+  width: 46px;
+  height: 31px;
+  transform: translateX(-50%);
+}
+
+.gift-bow-loop {
+  position: absolute;
+  top: 7px;
+  width: 21px;
+  height: 14px;
+  border: 4px solid var(--gift-bow);
+  background: var(--gift-ribbon-light);
+  border-radius: 70% 50% 50% 15%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+}
+
+.gift-bow-loop.left {
+  left: 1px;
+  transform: rotate(20deg);
+}
+
+.gift-bow-loop.right {
+  right: 1px;
+  transform: scaleX(-1) rotate(20deg);
+}
+
+.gift-bow-knot {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+  z-index: 3;
+  background: var(--gift-bow);
+  box-shadow: inset 1px 1px 2px rgba(255,255,255,.4);
+}
+
+.gift-bow-tail {
+  position: absolute;
+  top: 18px;
+  width: 8px;
+  height: 15px;
+  background: linear-gradient(
+    90deg,
+    var(--gift-ribbon),
+    var(--gift-ribbon-light)
+  );
+  z-index: -1;
+}
+
+.gift-bow-tail.left {
+  left: 12px;
+  transform: rotate(20deg);
+}
+
+.gift-bow-tail.right {
+  right: 12px;
+  transform: rotate(-20deg);
+}
+
+/* Etiquetas */
+
+.gift-label {
+  position: absolute;
+  z-index: 7;
+  right: -10px;
+  bottom: 4px;
+  padding: 2px 5px;
+  background: #f7edda;
+  color: #896a56;
+  border: 1px solid rgba(177,146,108,.5);
+  font-family: 'Playfair Display', serif;
+  font-size: 7px;
+  transform: rotate(-9deg);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.12);
+}
+
+/* Adorno frontal */
+
+.gift-decoration {
+  position: absolute;
+  z-index: 5;
+  left: 8px;
+  bottom: 5px;
+  color: var(--gift-ribbon-light);
+  font-size: 11px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+/* Sombra */
+
+.gift-object-shadow {
+  position: absolute;
+  width: 90px;
+  height: 12px;
+  bottom: 4px;
+  background: var(--gift-shadow);
+  opacity: 0.22;
+  filter: blur(7px);
+  border-radius: 50%;
+}
+
+/* Estados */
+
+.gift-card-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #b49a91;
+  font-size: 9px;
+  letter-spacing: 0.2px;
+}
+
+.gift-card.is-unlocked {
+  border-color: rgba(197,158,132,.6);
+}
+
+.gift-card.is-unlocked .gift-card-status {
+  color: #a57c65;
+}
+
+.gift-unlocked-sparkle {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  color: #c6a36d;
+}
+
+/* Tamaño compacto */
+
+.gift-card-compact {
+  min-height: 156px;
+}
+
+.gift-card-compact .gift-card-scene {
+  height: 96px;
+}
+
+/* Accesibilidad */
+
+.gift-card:focus-visible {
+  outline: 2px solid #b77d8b;
+  outline-offset: 3px;
+}
+
+@media (max-width: 360px) {
+  .gift-collection {
+    gap: 8px;
+  }
+
+  .gift-card {
+    min-height: 145px;
+  }
+
+  .gift-card-compact .gift-card-scene {
+    height: 87px;
+    transform: scale(.91);
+  }
+
+  .gift-card-status {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 500px) {
+  .gift-collection {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 700px) {
+  .gift-collection {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 17px;
+  }
+
+  .gift-card {
+    min-height: 175px;
+  }
+
+  .gift-card-compact .gift-card-scene {
+    height: 110px;
+  }
+}
+
+/* ==========================================
+   CALENDARIO - COLECCIÓN DE REGALOS
+========================================== */
+
+.calendar-gifts-section {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.calendar-intro {
+  margin-bottom: 30px;
+}
+
+.calendar-progress {
+  margin-bottom: 24px;
+}
+
+/* Pequeño detalle visual de las tarjetas */
+
+.gift-card {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.gift-card.is-locked {
+  opacity: 0.92;
+}
+
+.gift-card.is-unlocked:hover {
+  border-color: #c59e84;
+  box-shadow: 0 10px 24px rgba(153, 104, 105, 0.14);
+}
+/* =========================================
+   APERTURA DE REGALOS
+========================================= */
+
+.gift-opening-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(48, 30, 39, 0.66);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gift-opening {
+  position: relative;
+  width: 100%;
+  max-width: 510px;
+  min-height: 580px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(246, 221, 226, 0.7),
+      transparent 38%
+    ),
+    #fffaf7;
+  box-shadow: 0 30px 100px rgba(34, 17, 25, 0.3);
+}
+
+.gift-opening-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px 25px 10px;
+}
+
+.gift-opening-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: #866b76;
+  font-size: 13px;
+}
+
+.gift-opening-counter {
+  color: #a1848e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.gift-opening-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 38px 38px 35px;
+  text-align: center;
+}
+
+.gift-opening-icon {
+  position: relative;
+  display: flex;
+  width: 88px;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  border: 1px solid rgba(185, 132, 151, 0.3);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f8e4e8, #efd1da);
+  color: #a85f79;
+  box-shadow: 0 12px 35px rgba(177, 111, 137, 0.16);
+}
+
+.gift-opening-icon-glow {
+  position: absolute;
+  inset: -9px;
+  border: 1px solid rgba(185, 132, 151, 0.16);
+  border-radius: 50%;
+}
+
+.gift-opening-sparkle {
+  position: absolute;
+  top: 2px;
+  right: -8px;
+  color: #bd9470;
+}
+
+.gift-opening-eyebrow {
+  margin: 0 0 13px;
+  color: #b18491;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.gift-opening-content h2 {
+  max-width: 100%;
+  margin: 0;
+  color: #573d49;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(27px, 6vw, 37px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.gift-opening-divider {
+  display: flex;
+  width: 145px;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: #bd899b;
+}
+
+.gift-opening-divider span {
+  height: 1px;
+  flex: 1;
+  background: #e8cbd3;
+}
+
+.gift-opening-message {
+  max-width: 350px;
+  margin: 0 0 18px;
+  color: #755b66;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.gift-opening-detail {
+  max-width: 350px;
+  color: #927d85;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.gift-opening-closing {
+  margin: 24px 0 0;
+  color: #ae7589;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.gift-opening-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 32px;
+  padding: 0 25px;
+  border: 0;
+  border-radius: 30px;
+  background: linear-gradient(120deg, #b77d91, #986477);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(152, 100, 119, 0.2);
+}
+
+.gift-opening-button span {
+  font-size: 17px;
+}
+
+.gift-opening-footer {
+  padding: 0 15px 22px;
+  color: #c1a5ad;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .gift-opening-backdrop {
+    padding: 12px;
+  }
+
+  .gift-opening {
+    min-height: auto;
+    border-radius: 24px;
+  }
+
+  .gift-opening-header {
+    padding: 20px 19px 5px;
+  }
+
+  .gift-opening-content {
+    padding: 35px 24px 30px;
+  }
+
+  .gift-opening-icon {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 25px;
+  }
+
+  .gift-opening-message {
+    font-size: 18px;
+  }
+
+  .gift-opening-detail {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-opening-backdrop *,
+  .gift-opening * {
+    scroll-behavior: auto !important;
+  }
+}
+/* =========================================
+   ADMINISTRACIÓN
+========================================= */
+
+.admin-login-page {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 15% 15%, #f4dfe5, transparent 35%),
+    radial-gradient(circle at 85% 85%, #f2e3d9, transparent 35%),
+    #fffaf7;
+}
+
+.admin-login-decoration {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(180, 128, 148, 0.14);
+  border-radius: 50%;
+}
+
+.admin-decoration-one {
+  top: -140px;
+  left: -100px;
+}
+
+.admin-decoration-two {
+  right: -120px;
+  bottom: -160px;
+  width: 380px;
+  height: 380px;
+}
+
+.admin-login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 43px 38px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 25px 75px rgba(91, 57, 72, 0.12);
+  backdrop-filter: blur(15px);
+}
+
+.admin-login-symbol {
+  display: flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-radius: 18px;
+  background: #f5e2e8;
+  color: #a56880;
+}
+
+.admin-login-eyebrow,
+.admin-topbar-label {
+  color: #b18491;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.admin-login-card h1 {
+  margin: 10px 0;
+  color: #573d49;
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.admin-login-description {
+  margin: 0 0 30px;
+  color: #927d85;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.admin-login-form label {
+  margin-top: 7px;
+  color: #705762;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.admin-input-wrapper {
+  display: flex;
+  height: 49px;
+  align-items: center;
+  gap: 11px;
+  padding: 0 14px;
+  border: 1px solid #eadde1;
+  border-radius: 11px;
+  background: #fffdfc;
+  color: #b18b99;
+}
+
+.admin-input-wrapper:focus-within {
+  border-color: #bb879a;
+  box-shadow: 0 0 0 3px rgba(187, 135, 154, 0.1);
+}
+
+.admin-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #573d49;
+  font: inherit;
+  font-size: 13px;
+}
+
+.admin-input-wrapper input::placeholder {
+  color: #c2afb6;
+}
+
+.admin-login-error {
+  margin: 5px 0;
+  color: #b74e5d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.admin-login-submit {
+  min-height: 49px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(120deg, #b77d91, #986477);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(152, 100, 119, 0.18);
+}
+
+.admin-login-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 25px 0 0;
+  color: #b39ca5;
+  font-size: 10px;
+}
+
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #faf7f6;
+  color: #573d49;
+}
+
+.admin-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 250px;
+  height: 100vh;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: 28px 19px;
+  border-right: 1px solid #eee5e7;
+  background: #fffdfc;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 5px 32px;
+  border-bottom: 1px solid #f0e8ea;
+}
+
+.admin-brand-icon {
+  display: flex;
+  width: 43px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #f5e2e8;
+  color: #a56880;
+}
+
+.admin-brand strong,
+.admin-brand span {
+  display: block;
+}
+
+.admin-brand strong {
+  font-size: 12px;
+}
+
+.admin-brand span {
+  margin-top: 4px;
+  color: #aa929b;
+  font-size: 10px;
+}
+
+.admin-navigation {
+  padding-top: 27px;
+}
+
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  border-radius: 10px;
+  color: #a17f8c;
+  font-size: 12px;
+}
+
+.admin-nav-item.active {
+  background: #f8edf0;
+  color: #986477;
+  font-weight: 600;
+}
+
+.admin-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 13px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #987d88;
+  font-size: 12px;
+  text-align: left;
+}
+
+.admin-logout-button:hover {
+  background: #f8edf0;
+  color: #986477;
+}
+
+.admin-main {
+  width: 100%;
+  min-width: 0;
+  padding: 36px 42px;
+}
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid #eee5e7;
+}
+
+.admin-topbar h1 {
+  margin: 8px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #947784;
+  font-size: 11px;
+}
+
+.admin-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 27px 30px;
+  border: 1px solid #f0dfe4;
+  border-radius: 17px;
+  background: linear-gradient(115deg, #f8e9ed, #fff7f3);
+  color: #a56880;
+}
+
+.admin-welcome h2 {
+  margin: 0 0 9px;
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.admin-welcome p {
+  margin: 0;
+  color: #987d88;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.admin-stat-card {
+  display: flex;
+  min-height: 175px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid #eee5e7;
+  border-radius: 15px;
+  background: white;
+}
+
+.admin-stat-icon {
+  display: flex;
+  width: 39px;
+  height: 39px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 11px;
+  background: #f8edf0;
+  color: #a56880;
+}
+
+.admin-stat-card > span {
+  color: #987d88;
+  font-size: 11px;
+}
+
+.admin-stat-card strong {
+  margin-top: 6px;
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.admin-stat-card small {
+  margin-top: 4px;
+  color: #b09da4;
+  font-size: 10px;
+}
+
+.admin-placeholder {
+  margin-top: 23px;
+  padding: 25px;
+  border: 1px solid #eee5e7;
+  border-radius: 15px;
+  background: white;
+}
+
+.admin-placeholder h3 {
+  margin: 0 0 9px;
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.admin-placeholder p {
+  max-width: 570px;
+  margin: 0;
+  color: #987d88;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.admin-dashboard-error {
+  padding: 12px 15px;
+  border-radius: 9px;
+  background: #fff0f0;
+  color: #a94452;
+  font-size: 12px;
+}
+
+.admin-loading {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #fffaf7;
+  color: #987d88;
+  font-size: 13px;
+}
+
+.admin-loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f0dfe4;
+  border-top-color: #a56880;
+  border-radius: 50%;
+  animation: admin-spin 0.8s linear infinite;
+}
+
+@keyframes admin-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .admin-sidebar {
+    width: 205px;
+  }
+
+  .admin-main {
+    padding: 28px 23px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-login-card {
+    padding: 35px 25px;
+  }
+
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px 18px;
+    border-right: 0;
+    border-bottom: 1px solid #eee5e7;
+  }
+
+  .admin-brand {
+    padding-bottom: 13px;
+  }
+
+  .admin-navigation {
+    display: none;
+  }
+
+  .admin-logout-button {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .admin-logout-button {
+    font-size: 0;
+  }
+
+  .admin-logout-button svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .admin-main {
+    padding: 25px 17px;
+  }
+
+  .admin-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-topbar h1 {
+    font-size: 25px;
+  }
+
+  .admin-welcome {
+    padding: 22px;
+  }
+
+  .admin-welcome h2 {
+    font-size: 19px;
+  }
+
+  .admin-user {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================
+   ADMINISTRACIÓN — ANALÍTICA
+========================================= */
+
+.admin-topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.admin-refresh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #eadde1;
+  border-radius: 9px;
+  background: #fff;
+  color: #986477;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.admin-refresh-button:hover:not(:disabled) {
+  background: #f8edf0;
+  border-color: #dfc2cc;
+}
+
+.admin-refresh-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.admin-spin {
+  animation: admin-spin 0.8s linear infinite;
+}
+
+.admin-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.admin-stat-card {
+  min-width: 0;
+  min-height: 165px;
+  box-shadow: 0 3px 15px rgba(87, 61, 73, 0.025);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(87, 61, 73, 0.07);
+}
+
+.admin-stat-card strong {
+  overflow-wrap: anywhere;
+}
+
+.admin-analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 19px;
+}
+
+.admin-secondary-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-panel-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #eee5e7;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 3px 15px rgba(87, 61, 73, 0.025);
+}
+
+.admin-panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 23px;
+  color: #a56880;
+}
+
+.admin-panel-heading > svg {
+  flex-shrink: 0;
+  margin-top: 5px;
+  opacity: 0.75;
+}
+
+.admin-section-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #b18b9a;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.admin-panel-heading h3,
+.admin-calendar-summary h3 {
+  margin: 0;
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.admin-panel-heading p,
+.admin-calendar-summary p {
+  margin: 6px 0 0;
+  color: #a58e98;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.admin-panel-footnote {
+  margin: 16px 0 0;
+  color: #b09da4;
+  font-size: 10px;
+}
+
+/* Gráfica de actividad */
+
+.admin-chart {
+  display: grid;
+  height: 190px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.admin-chart-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-chart-column > strong {
+  color: #987d88;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-chart-track {
+  display: flex;
+  width: 100%;
+  max-width: 37px;
+  height: 125px;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #fbf5f6;
+}
+
+.admin-chart-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #d6a8b8, #a56880);
+  transition: height 0.4s ease;
+}
+
+.admin-chart-column > span {
+  color: #a58e98;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Dispositivos */
+
+.admin-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.admin-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-breakdown-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.admin-breakdown-label > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #806571;
+  font-size: 11px;
+}
+
+.admin-breakdown-label svg {
+  color: #b17e91;
+}
+
+.admin-breakdown-label strong {
+  color: #654854;
+  font-size: 11px;
+}
+
+.admin-breakdown-track,
+.admin-calendar-progress {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f6edf0;
+}
+
+.admin-breakdown-fill,
+.admin-calendar-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d6a8b8, #a56880);
+  transition: width 0.4s ease;
+}
+
+.admin-breakdown-item small {
+  color: #b09da4;
+  font-size: 9px;
+}
+
+/* Navegadores */
+
+.admin-browser-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-browser-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f3ebed;
+  color: #806571;
+  font-size: 11px;
+}
+
+.admin-browser-row:last-child {
+  border-bottom: 0;
+}
+
+.admin-browser-row strong {
+  color: #654854;
+  font-size: 12px;
+}
+
+/* Interacciones */
+
+.admin-interaction-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-interaction-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f3ebed;
+}
+
+.admin-interaction-list > div:last-child {
+  border-bottom: 0;
+}
+
+.admin-interaction-list span {
+  color: #987d88;
+  font-size: 11px;
+}
+
+.admin-interaction-list strong {
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.admin-empty-state {
+  margin: 0;
+  padding: 15px 0;
+  color: #ad98a1;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* Últimas sesiones */
+
+.admin-sessions-card {
+  margin-top: 19px;
+}
+
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #dfc2cc #fbf5f6;
+}
+
+.admin-sessions-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-sessions-table th {
+  padding: 12px 13px;
+  background: #fcf7f8;
+  color: #a58e98;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.admin-sessions-table th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.admin-sessions-table th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.admin-sessions-table td {
+  padding: 14px 13px;
+  border-bottom: 1px solid #f3ebed;
+  color: #806571;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.admin-sessions-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-sessions-table tbody tr:hover {
+  background: #fdfafb;
+}
+
+.admin-table-device {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-table-device svg {
+  color: #b17e91;
+}
+
+.admin-session-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: #f4f0f1;
+  color: #987d88;
+  font-size: 9px;
+}
+
+.admin-session-status.active {
+  background: #edf7f0;
+  color: #528365;
+}
+
+/* Resumen de calendario */
+
+.admin-calendar-summary {
+  margin-top: 19px;
+}
+
+.admin-calendar-progress {
+  margin-top: 18px;
+}
+
+.admin-calendar-progress > div {
+  min-width: 0;
+}
+
+.admin-dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 15px 0 5px;
+  color: #b09da4;
+  font-size: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .admin-main {
+    padding: 30px 25px;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .admin-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-topbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-main {
+    padding: 23px 15px;
+  }
+
+  .admin-topbar-actions {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 13px;
+  }
+
+  .admin-refresh-button {
+    width: 100%;
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .admin-stat-card {
+    min-height: 150px;
+    padding: 15px;
+  }
+
+  .admin-stat-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 12px;
+  }
+
+  .admin-stat-card > span {
+    font-size: 10px;
+  }
+
+  .admin-stat-card strong {
+    font-size: 25px;
+  }
+
+  .admin-stat-card small {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .admin-analytics-grid,
+  .admin-secondary-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+    margin-top: 13px;
+  }
+
+  .admin-panel-card {
+    padding: 18px 15px;
+  }
+
+  .admin-panel-heading h3 {
+    font-size: 17px;
+  }
+
+  .admin-chart {
+    gap: 7px;
+  }
+
+  .admin-chart-column > span {
+    font-size: 9px;
+  }
+
+  .admin-chart-track {
+    max-width: 29px;
+  }
+
+  .admin-dashboard-footer {
+    flex-direction: column;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 360px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   ADMINISTRACIÓN — EDITOR DE CALENDARIO
+========================================= */
+
+.admin-calendar-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 19px;
+}
+
+.admin-calendar-overview > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid #eee5e7;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.admin-calendar-overview span {
+  color: #987d88;
+  font-size: 11px;
+}
+
+.admin-calendar-overview strong {
+  color: #654854;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.admin-calendar-editor {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.admin-day-selector {
+  position: sticky;
+  top: 20px;
+}
+
+.admin-day-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.admin-day-option {
+  display: flex;
+  min-width: 0;
+  min-height: 66px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 3px;
+  border: 1px solid #eee5e7;
+  border-radius: 10px;
+  background: #fffdfc;
+  color: #806571;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.admin-day-option:hover {
+  border-color: #d6a8b8;
+  transform: translateY(-2px);
+}
+
+.admin-day-option strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.admin-day-option span {
+  color: #b09da4;
+  font-size: 8px;
+}
+
+.admin-day-option.selected {
+  border-color: #a56880;
+  background: #f8edf0;
+  color: #986477;
+  box-shadow: 0 0 0 2px rgba(165, 104, 128, 0.08);
+}
+
+.admin-day-option.published {
+  background-image: linear-gradient(
+    145deg,
+    rgba(237, 247, 240, 0.7),
+    rgba(255, 255, 255, 0.4)
+  );
+}
+
+.admin-day-option.published.selected {
+  background: #f8edf0;
+}
+
+.admin-day-form {
+  min-width: 0;
+}
+
+.admin-editor-status {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 20px;
+  background: #f4f0f1;
+  color: #987d88;
+  font-size: 9px;
+}
+
+.admin-editor-status.published {
+  background: #edf7f0;
+  color: #528365;
+}
+
+.admin-editor-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-editor-field > span {
+  color: #806571;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-editor-field input,
+.admin-editor-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid #eadde1;
+  border-radius: 9px;
+  outline: none;
+  background: #fffdfc;
+  color: #654854;
+  font: inherit;
+  font-size: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-editor-field input:focus,
+.admin-editor-field textarea:focus {
+  border-color: #b98296;
+  box-shadow: 0 0 0 3px rgba(165, 104, 128, 0.09);
+}
+
+.admin-editor-field textarea {
+  resize: vertical;
+  min-height: 75px;
+  line-height: 1.7;
+}
+
+.admin-editor-field input::placeholder,
+.admin-editor-field textarea::placeholder {
+  color: #c0adb5;
+}
+
+.admin-editor-field small {
+  color: #ad98a1;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.admin-editor-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 13px;
+  border: 1px solid #f0e4e8;
+  border-radius: 9px;
+  background: #fcf7f8;
+  color: #a56880;
+}
+
+.admin-editor-note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.admin-editor-note p {
+  margin: 0;
+  color: #987d88;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.admin-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.admin-editor-actions button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.admin-editor-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.admin-editor-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.admin-editor-save {
+  background: #f8edf0;
+  color: #986477;
+}
+
+.admin-editor-save:hover:not(:disabled) {
+  background: #f1dfe6;
+}
+
+.admin-editor-publish {
+  background: #a56880;
+  color: #fff;
+}
+
+.admin-editor-publish:hover:not(:disabled) {
+  background: #8f566e;
+}
+
+.admin-editor-unpublish {
+  border-color: #eadde1 !important;
+  background: #fff;
+  color: #987d88;
+}
+
+.admin-editor-alert {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.admin-editor-alert.error {
+  background: #fff0f0;
+  color: #a94452;
+}
+
+.admin-editor-alert.success {
+  background: #edf7f0;
+  color: #528365;
+}
+
+@media (max-width: 1000px) {
+  .admin-calendar-editor {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-day-selector {
+    position: static;
+  }
+
+  .admin-day-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-calendar-overview {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .admin-calendar-overview > div {
+    padding: 13px 10px;
+  }
+
+  .admin-calendar-overview span {
+    font-size: 9px;
+  }
+
+  .admin-calendar-overview strong {
+    font-size: 21px;
+  }
+
+  .admin-day-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .admin-day-option {
+    min-height: 59px;
+  }
+
+  .admin-day-option strong {
+    font-size: 17px;
+  }
+
+  .admin-editor-actions {
+    flex-direction: column;
+  }
+
+  .admin-editor-actions button {
+    width: 100%;
+  }
+}
