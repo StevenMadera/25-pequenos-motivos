@@ -96,19 +96,28 @@ export default function useAnalytics() {
     }
   }, [])
 
-  const track = useCallback(
-    (eventName: TrackedEvent, dayId?: number) => {
-      if (!sessionId.current) return
+    const track = useCallback(
+    (
+        eventName: TrackedEvent,
+        dayId?: number,
+        metadata?: {
+        interaction?: string
+        durationSeconds?: number
+        attemptNumber?: number
+        },
+    ) => {
+        if (!sessionId.current) return
 
-      void sendAnalytics({
+        void sendAnalytics({
         action: 'event',
         sessionId: sessionId.current,
         eventName,
         dayId,
-      })
+        metadata,
+        })
     },
     [],
-  )
+    )
 
   return { track }
 }

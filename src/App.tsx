@@ -1,4 +1,4 @@
-import useAnalytics from './hooks/useAnalytics'
+
 import {
   lazy,
   Suspense,
@@ -6,15 +6,18 @@ import {
   useEffect,
   useState,
 } from 'react'
+
 import {
   AnimatePresence,
   motion,
 } from 'framer-motion'
+
 import {
   ArrowLeft,
   Sparkles,
   RefreshCw,
 } from 'lucide-react'
+
 import {
   BrowserRouter,
   Navigate,
@@ -22,9 +25,16 @@ import {
   Routes,
 } from 'react-router-dom'
 
+import useAnalytics from './hooks/useAnalytics'
+
 import WelcomePage from './pages/WelcomePage'
 import GiftCollection from './components/gifts/GiftCollection'
 import GiftOpening from './components/gifts/GiftOpening'
+import TrapGiftModal from './components/gifts/TrapGiftModal'
+
+import { getAdventCalendar } from './services/advent'
+import type { PublicAdventDay } from './types/advent'
+
 const AdminLoginPage = lazy(
   () => import('./pages/admin/AdminLoginPage'),
 )
@@ -36,22 +46,24 @@ const AdminDashboard = lazy(
 const AdminGuard = lazy(
   () => import('./components/common/AdminGuard'),
 )
+
 const AdminCalendarPage = lazy(
   () => import('./pages/admin/AdminCalendarPage'),
 )
-import { getAdventCalendar } from './services/advent'
-import type { PublicAdventDay } from './types/advent'
 
 type Screen = 'welcome' | 'calendar'
 
 function PublicApp() {
   const [screen, setScreen] = useState<Screen>('welcome')
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
+  const [showTrap, setShowTrap] = useState(false)
 
   const [days, setDays] = useState<PublicAdventDay[]>([])
   const [serverDate, setServerDate] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+
+  const { track } = useAnalytics()
 
   const loadCalendar = useCallback(async () => {
     setLoading(true)
@@ -82,6 +94,8 @@ function PublicApp() {
   const selectedGift =
     days.find((day) => day.id === selectedDay) ?? null
 
+  const firstDay = days.find((day) => day.id === 1) ?? null
+
   const availableCount = days.filter(
     (day) => day.state === 'available',
   ).length
@@ -96,19 +110,27 @@ function PublicApp() {
     setSelectedDay(dayId)
   }
 
-  const { track } = useAnalytics()
-
-useEffect(() => {
-  if (screen === 'calendar') {
-    track('calendar_view')
+  // La trampa solo puede activarse mientras el día 1 esté bloqueado.
+const handleTrapSelect = () => {
+  if (firstDay?.state !== 'locked' || showTrap) {
+    return
   }
-}, [screen, track])
 
-useEffect(() => {
-  if (selectedGift) {
-    track('gift_open', selectedGift.id)
-  }
-}, [selectedGift, track])
+  track('trap_open', 1)
+  setShowTrap(true)
+}
+
+  useEffect(() => {
+    if (screen === 'calendar') {
+      track('calendar_view')
+    }
+  }, [screen, track])
+
+  useEffect(() => {
+    if (selectedGift) {
+      track('gift_open', selectedGift.id)
+    }
+  }, [selectedGift, track])
 
   return (
     <>
@@ -205,6 +227,7 @@ useEffect(() => {
                 <GiftCollection
                   days={days}
                   onSelect={handleSelectDay}
+                  onTrapSelect={handleTrapSelect}
                 />
               )}
             </section>
@@ -213,22 +236,33 @@ useEffect(() => {
               <div className="calendar-footer-heart">
                 <span>♡</span>
               </div>
-              <p>Un detalle preparado especialmente para ti.</p>
+
+              <p>
+                Un detalle preparado especialmente para ti.
+              </p>
             </footer>
           </motion.main>
         )}
       </AnimatePresence>
 
       <GiftOpening
-  day={selectedGift}
-  onClose={() => {
-    if (selectedGift) {
-      track('gift_close', selectedGift.id)
-    }
+        day={selectedGift}
+        onClose={() => {
+          if (selectedGift) {
+            track('gift_close', selectedGift.id)
+          }
 
-    setSelectedDay(null)
-  }}
-/>
+          setSelectedDay(null)
+        }}
+      />
+
+      {showTrap && firstDay?.state === 'locked' && (
+        <TrapGiftModal
+          unlockDate={firstDay.unlockDate}
+          onTrack={track}
+          onClose={() => setShowTrap(false)}
+        />
+      )}
     </>
   )
 }
@@ -239,7 +273,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<PublicApp />} />
 
-                <Route
+        <Route
           path="/admin"
           element={
             <Suspense
@@ -284,21 +318,22 @@ export default function App() {
               </Suspense>
             }
           />
+
           <Route
-  path="/admin/calendar"
-  element={
-    <Suspense
-      fallback={
-        <div className="admin-loading">
-          <div className="admin-loading-spinner" />
-          <span>Cargando calendario...</span>
-        </div>
-      }
-    >
-      <AdminCalendarPage />
-    </Suspense>
-  }
-/>
+            path="/admin/calendar"
+            element={
+              <Suspense
+                fallback={
+                  <div className="admin-loading">
+                    <div className="admin-loading-spinner" />
+                    <span>Cargando calendario...</span>
+                  </div>
+                }
+              >
+                <AdminCalendarPage />
+              </Suspense>
+            }
+          />
         </Route>
 
         <Route

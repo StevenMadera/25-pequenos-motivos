@@ -46,6 +46,18 @@ interface EventRecord {
   day_id: number | null
 }
 
+interface TrapEventRecord {
+  id: string
+  session_id: string
+  occurred_at: string
+  event_name: string
+  metadata: {
+    interaction?: string | null
+    attemptNumber?: number | null
+    durationSeconds?: number | null
+  } | null
+}
+
 interface DailyActivity {
   date: string
   label: string
@@ -170,6 +182,7 @@ export default function AdminDashboard() {
   })
 
   const [sessions, setSessions] = useState<SessionRecord[]>([])
+  const [trapEvents, setTrapEvents] = useState<TrapEventRecord[]>([])
   const [dailyActivity, setDailyActivity] = useState<DailyActivity[]>(
     getLastSevenDays(),
   )
@@ -208,6 +221,7 @@ export default function AdminDashboard() {
         giftOpensResult,
         sessionsResult,
         eventsResult,
+        trapEventsResult,
       ] = await Promise.all([
         supabase
           .from('advent_days')
@@ -251,6 +265,22 @@ export default function AdminDashboard() {
           .eq('event_name', 'page_view')
           .order('occurred_at', { ascending: false })
           .limit(5000),
+
+          supabase
+  .from('analytics_events')
+  .select('id, session_id, occurred_at, event_name, metadata')
+  .in('event_name', [
+    'trap_open',
+    'trap_wait_click',
+    'trap_escape_attempt',
+    'trap_escape_hover',
+    'trap_video_play',
+    'trap_sound_enabled',
+    'trap_sound_muted',
+    'trap_close',
+  ])
+  .order('occurred_at', { ascending: false })
+  .limit(5000),
       ])
 
       const results = [
@@ -262,7 +292,9 @@ export default function AdminDashboard() {
         giftOpensResult,
         sessionsResult,
         eventsResult,
+        trapEventsResult,
       ]
+
 
       const failedResult = results.find((result) => result.error)
 
@@ -271,6 +303,9 @@ export default function AdminDashboard() {
       }
 
       const sessionRows = (sessionsResult.data ?? []) as SessionRecord[]
+      const trapRows = (trapEventsResult.data ?? []) as TrapEventRecord[]
+
+setTrapEvents(trapRows)
       const eventRows = (eventsResult.data ?? []) as EventRecord[]
 
       const totalActiveSeconds = sessionRows.reduce(
@@ -366,6 +401,63 @@ export default function AdminDashboard() {
     (total, value) => total + value,
     0,
   )
+  // =========================================
+// ANALÍTICA DE LA SORPRESA DEL DÍA 1
+// =========================================
+
+const getTrapCount = (eventName: string) =>
+  trapEvents.filter(
+    (event) => event.event_name === eventName,
+  ).length
+
+const trapOpens = getTrapCount('trap_open')
+const trapCloses = getTrapCount('trap_close')
+const trapWaits = getTrapCount('trap_wait_click')
+const trapAttempts = getTrapCount('trap_escape_attempt')
+const trapHovers = getTrapCount('trap_escape_hover')
+const trapVideoPlays = getTrapCount('trap_video_play')
+const trapSoundEnabled = getTrapCount('trap_sound_enabled')
+const trapSoundMuted = getTrapCount('trap_sound_muted')
+
+// Promedio de permanencia en la sorpresa.
+const trapDurations = trapEvents
+  .filter((event) => event.event_name === 'trap_close')
+  .map((event) => event.metadata?.durationSeconds)
+  .filter(
+    (value): value is number =>
+      typeof value === 'number' && Number.isFinite(value),
+  )
+
+const averageTrapSeconds = trapDurations.length > 0
+  ? Math.round(
+      trapDurations.reduce((total, value) => total + value, 0) /
+        trapDurations.length,
+    )
+  : 0
+
+// Promedio de intentos del botón por apertura.
+const averageAttempts = trapOpens > 0
+  ? (trapAttempts / trapOpens).toFixed(1)
+  : '0'
+
+// Relacionar los eventos con los dispositivos de las sesiones.
+const sessionDevices = new Map(
+  sessions.map((session) => [
+    session.session_id,
+    getDeviceLabel(session.device_type),
+  ]),
+)
+
+const trapEventLabels: Record<string, string> = {
+  trap_open: 'Abrió la sorpresa',
+  trap_wait_click: 'Decidió esperar',
+  trap_escape_attempt: 'Intentó atrapar el botón',
+  trap_escape_hover: 'El botón escapó del cursor',
+  trap_video_play: 'Reprodujo el video',
+  trap_sound_enabled: 'Activó el sonido',
+  trap_sound_muted: 'Silenció el video',
+  trap_close: 'Cerró la sorpresa',
+}
 
   return (
     <main className="admin-dashboard">
@@ -661,6 +753,163 @@ export default function AdminDashboard() {
             </div>
           </article>
         </section>
+
+
+<section className="admin-panel-card admin-trap-card">
+  <div className="admin-panel-heading">
+    <div>
+      <span className="admin-section-eyebrow">
+        EXPERIENCIA ESPECIAL
+      </span>
+      <h3>La sorpresa del día 1</h3>
+      <p>
+        Comportamiento e interacciones con el regalo trampa.
+      </p>
+    </div>
+
+    <Gift size={22} />
+  </div>
+
+  <div className="admin-trap-stats">
+    <article>
+      <span>Aperturas de la sorpresa</span>
+      <strong>{loading ? '—' : trapOpens}</strong>
+      <small>Veces que ingresó al regalo trampa</small>
+    </article>
+
+    <article>
+      <span>Intentos de atrapar el botón</span>
+      <strong>{loading ? '—' : trapAttempts}</strong>
+      <small>Intentos registrados en pantalla</small>
+    </article>
+
+    <article>
+      <span>Veces que escapó del cursor</span>
+      <strong>{loading ? '—' : trapHovers}</strong>
+      <small>Movimientos detectados con ratón</small>
+    </article>
+
+    <article>
+      <span>Decidió esperar</span>
+      <strong>{loading ? '—' : trapWaits}</strong>
+      <small>Veces que pulsó «Bueno, esperaré»</small>
+    </article>
+
+    <article>
+      <span>Reproducciones del video</span>
+      <strong>{loading ? '—' : trapVideoPlays}</strong>
+      <small>Reproducciones iniciadas</small>
+    </article>
+
+    <article>
+      <span>Activó el sonido</span>
+      <strong>{loading ? '—' : trapSoundEnabled}</strong>
+      <small>Activaciones del audio</small>
+    </article>
+
+    <article>
+      <span>Silenció el video</span>
+      <strong>{loading ? '—' : trapSoundMuted}</strong>
+      <small>Veces que silenció el audio</small>
+    </article>
+
+    <article>
+      <span>Tiempo promedio</span>
+      <strong>
+        {loading ? '—' : formatDuration(averageTrapSeconds)}
+      </strong>
+      <small>Duración de las visitas cerradas</small>
+    </article>
+
+    <article>
+      <span>Promedio de intentos</span>
+      <strong>{loading ? '—' : averageAttempts}</strong>
+      <small>Intentos por apertura registrada</small>
+    </article>
+
+    <article>
+      <span>Cierres registrados</span>
+      <strong>{loading ? '—' : trapCloses}</strong>
+      <small>Veces que cerró la sorpresa</small>
+    </article>
+  </div>
+
+  <div className="admin-trap-history">
+    <div className="admin-trap-history-heading">
+      <div>
+        <span className="admin-section-eyebrow">
+          SEGUIMIENTO
+        </span>
+        <h3>Historial de interacciones</h3>
+        <p>
+          Últimos {Math.min(trapEvents.length, 50)} eventos registrados.
+        </p>
+      </div>
+
+      <Activity size={20} />
+    </div>
+
+    {loading ? (
+      <p className="admin-empty-state">
+        Cargando interacciones...
+      </p>
+    ) : trapEvents.length === 0 ? (
+      <p className="admin-empty-state">
+        Todavía no hay interacciones con la sorpresa.
+      </p>
+    ) : (
+      <div className="admin-trap-event-list">
+        {trapEvents.slice(0, 50).map((event) => (
+          <div className="admin-trap-event" key={event.id}>
+            <span className="admin-trap-event-indicator" />
+
+            <div className="admin-trap-event-content">
+              <strong>
+                {trapEventLabels[event.event_name] || event.event_name}
+              </strong>
+
+              <span>{formatDate(event.occurred_at)}</span>
+
+              <div className="admin-trap-event-details">
+                {event.metadata?.interaction && (
+                  <small>
+                    Interacción: {event.metadata.interaction}
+                  </small>
+                )}
+
+                {event.metadata?.attemptNumber != null && (
+                  <small>
+                    Intento número: {event.metadata.attemptNumber}
+                  </small>
+                )}
+
+                {event.metadata?.durationSeconds != null && (
+                  <small>
+                    Tiempo abierta: {formatDuration(
+                      event.metadata.durationSeconds,
+                    )}
+                  </small>
+                )}
+
+                <small>
+                  Dispositivo: {
+                    sessionDevices.get(event.session_id) ||
+                    'No identificado'
+                  }
+                </small>
+
+                <small>
+                  Sesión: {event.session_id.slice(0, 8)}
+                </small>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
 
         <section className="admin-panel-card admin-sessions-card">
           <div className="admin-panel-heading">

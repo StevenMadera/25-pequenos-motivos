@@ -11,6 +11,8 @@ interface GiftBoxProps {
   unlocked: boolean
   onClick?: () => void
   compact?: boolean
+  allowLockedClick?: boolean
+
 }
 
 type GiftCSSProperties = CSSProperties & {
@@ -23,8 +25,8 @@ export default function GiftBox({
   unlocked,
   onClick,
   compact = false,
+  allowLockedClick = false,
 }: GiftBoxProps) {
-
   const customStyles: GiftCSSProperties = {
     '--gift-paper': design.paper,
     '--gift-paper-light': design.paperLight,
@@ -35,24 +37,39 @@ export default function GiftBox({
   }
 
   const handleClick = () => {
-    if (!unlocked) return
+    if (!unlocked && !allowLockedClick) return
     onClick?.()
   }
 
   return (
     <motion.button
       type="button"
-      className={`gift-card ${compact ? 'gift-card-compact' : ''} ${unlocked ? 'is-unlocked' : 'is-locked'}`}
+      className={`
+        gift-card
+        ${compact ? 'gift-card-compact' : ''}
+        ${unlocked ? 'is-unlocked' : 'is-locked'}
+        gift-box-size-${design.size}
+      `}
+      data-size={design.size}
+      data-shape={design.shape}
       style={customStyles}
       onClick={handleClick}
-      disabled={!unlocked}
-      whileHover={unlocked ? {
-        y: -5,
-        scale: 1.035,
-      } : undefined}
-      whileTap={unlocked ? {
-        scale: 0.95,
-      } : undefined}
+      disabled={!unlocked && !allowLockedClick}
+      whileHover={
+        unlocked
+          ? {
+              y: -5,
+              scale: 1.035,
+            }
+          : undefined
+      }
+      whileTap={
+        unlocked
+          ? {
+              scale: 0.95,
+            }
+          : undefined
+      }
       aria-label={`Regalo del día ${day}${unlocked ? ', disponible' : ', bloqueado'}`}
       aria-disabled={!unlocked}
     >
@@ -61,11 +78,9 @@ export default function GiftBox({
       </span>
 
       <span className="gift-card-scene">
-
         <span className="gift-card-glow" />
 
         <span className={`gift-object gift-shape-${design.shape}`}>
-
           <span className={`gift-pattern pattern-${design.pattern}`} />
 
           <span className="gift-side-highlight" />
@@ -103,7 +118,6 @@ export default function GiftBox({
             <Sparkles size={13} />
           </span>
         )}
-
       </span>
 
       <span className="gift-card-status">
@@ -119,7 +133,6 @@ export default function GiftBox({
           </>
         )}
       </span>
-
     </motion.button>
   )
 }

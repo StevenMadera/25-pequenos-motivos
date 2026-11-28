@@ -6,6 +6,14 @@ export type GiftShape =
   | 'small'
   | 'wrapped'
 
+export type GiftSize =
+  | '1x1'
+  | '2x1'
+  | '1x2'
+  | '2x2'
+  | '3x1'
+  | '4x2'
+
 export type GiftPattern =
   | 'plain'
   | 'stars'
@@ -29,6 +37,7 @@ export interface GiftDesign {
   shadow: string
   pattern: GiftPattern
   shape: GiftShape
+  size: GiftSize
   decoration: string
   label?: string
 }
@@ -45,6 +54,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#8e5364',
     pattern: 'plain',
     shape: 'square',
+    size: '1x1',
     decoration: '♡',
     label: 'Para ti',
   },
@@ -59,6 +69,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#b69b8d',
     pattern: 'plain',
     shape: 'wide',
+    size: '2x1',
     decoration: '✧',
   },
   {
@@ -72,6 +83,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#73543c',
     pattern: 'stars',
     shape: 'small',
+    size: '1x1',
     decoration: '✦',
   },
   {
@@ -85,6 +97,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#98736f',
     pattern: 'flowers',
     shape: 'tall',
+    size: '1x2',
     decoration: '❀',
     label: 'Un detalle',
   },
@@ -99,6 +112,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#b47b88',
     pattern: 'hearts',
     shape: 'square',
+    size: '2x1',
     decoration: '♡',
   },
   {
@@ -112,6 +126,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#354153',
     pattern: 'stars',
     shape: 'wide',
+    size: '1x1',
     decoration: '✦',
   },
   {
@@ -125,6 +140,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#aa8389',
     pattern: 'dots',
     shape: 'small',
+    size: '1x1',
     decoration: '○',
   },
   {
@@ -138,6 +154,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#75434d',
     pattern: 'stripes',
     shape: 'tall',
+    size: '1x2',
     decoration: '✧',
   },
   {
@@ -151,6 +168,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#a38b70',
     pattern: 'plain',
     shape: 'square',
+    size: '2x1',
     decoration: '♡',
   },
   {
@@ -164,6 +182,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#514258',
     pattern: 'stars',
     shape: 'wide',
+    size: '1x1',
     decoration: '☾',
   },
   {
@@ -177,6 +196,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#b8a094',
     pattern: 'dots',
     shape: 'tall',
+    size: '1x2',
     decoration: '☾',
   },
   {
@@ -190,6 +210,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#415746',
     pattern: 'leaves',
     shape: 'square',
+    size: '1x1',
     decoration: '❀',
   },
   {
@@ -203,6 +224,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#80525e',
     pattern: 'diamonds',
     shape: 'small',
+    size: '1x1',
     decoration: '✧',
   },
   {
@@ -216,6 +238,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#aeb4b0',
     pattern: 'snow',
     shape: 'wide',
+    size: '2x1',
     decoration: '❄',
   },
   {
@@ -229,6 +252,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#997968',
     pattern: 'flowers',
     shape: 'tall',
+    size: '1x2',
     decoration: '❀',
   },
   {
@@ -242,6 +266,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#8c5e49',
     pattern: 'stripes',
     shape: 'square',
+    size: '1x1',
     decoration: '♡',
   },
   {
@@ -255,6 +280,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#59404a',
     pattern: 'stars',
     shape: 'small',
+    size: '1x1',
     decoration: '✦',
   },
   {
@@ -268,6 +294,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#93839c',
     pattern: 'dots',
     shape: 'wide',
+    size: '2x1',
     decoration: '♡',
   },
   {
@@ -281,6 +308,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#492a34',
     pattern: 'plain',
     shape: 'tall',
+    size: '1x2',
     decoration: '✧',
   },
   {
@@ -294,6 +322,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#a17c75',
     pattern: 'hearts',
     shape: 'square',
+    size: '1x1',
     decoration: '♡',
   },
   {
@@ -307,6 +336,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#94816a',
     pattern: 'snow',
     shape: 'wide',
+    size: '2x1',
     decoration: '✦',
   },
   {
@@ -320,6 +350,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#995e69',
     pattern: 'flowers',
     shape: 'tall',
+    size: '1x2',
     decoration: '❀',
   },
   {
@@ -333,6 +364,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#413447',
     pattern: 'diamonds',
     shape: 'small',
+    size: '1x1',
     decoration: '☾',
   },
   {
@@ -346,6 +378,7 @@ export const giftDesigns: GiftDesign[] = [
     shadow: '#805d59',
     pattern: 'stars',
     shape: 'wide',
+    size: '3x1',
     decoration: '♡',
     label: 'Casi...',
   },
@@ -359,7 +392,8 @@ export const giftDesigns: GiftDesign[] = [
     bow: '#d6b47e',
     shadow: '#71434f',
     pattern: 'hearts',
-    shape: 'square',
+    shape: 'wrapped',
+    size: '4x2',
     decoration: '♥',
     label: 'Para Paula',
   },

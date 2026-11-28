@@ -14,6 +14,14 @@ const allowedEvents = [
   'gift_close',
   'heartbeat',
   'page_exit',
+  'trap_open',
+  'trap_wait_click',
+  'trap_escape_attempt',
+  'trap_escape_hover',
+  'trap_video_play',
+  'trap_sound_enabled',
+  'trap_sound_muted',
+  'trap_close',
 ] as const
 
 type AnalyticsEvent = typeof allowedEvents[number]
@@ -253,15 +261,56 @@ Deno.serve(async (request: Request) => {
         }
       }
 
-      const { error: eventError } = await supabase
+        const allowedTrapEvents = [
+        'trap_open',
+        'trap_wait_click',
+        'trap_escape_attempt',
+        'trap_escape_hover',
+        'trap_video_play',
+        'trap_sound_enabled',
+        'trap_sound_muted',
+        'trap_close',
+        ]
+
+        if (allowedTrapEvents.includes(eventName)) {
+        if (dayId !== 1) {
+            return jsonResponse(
+            { error: 'Los eventos de la trampa deben pertenecer al día 1.' },
+            400,
+            )
+        }
+        }
+
+        const rawMetadata =
+        body.metadata && typeof body.metadata === 'object'
+            ? body.metadata
+            : {}
+
+        const metadata = {
+        interaction: cleanText(rawMetadata.interaction, 40),
+        durationSeconds:
+            Number.isInteger(rawMetadata.durationSeconds) &&
+            rawMetadata.durationSeconds >= 0
+            ? Math.min(rawMetadata.durationSeconds, 86400)
+            : null,
+        attemptNumber:
+            Number.isInteger(rawMetadata.attemptNumber) &&
+            rawMetadata.attemptNumber >= 0
+            ? Math.min(rawMetadata.attemptNumber, 10000)
+            : null,
+        }
+
+        const { error: eventError } = await supabase
         .from('analytics_events')
         .insert({
-          session_id: sessionId,
-          event_name: eventName,
-          day_id: dayId ?? null,
-          metadata: {},
-          occurred_at: nowISO,
+            session_id: sessionId,
+            event_name: eventName,
+            day_id: dayId ?? null,
+            metadata,
+            occurred_at: nowISO,
         })
+
+        if (eventError) throw eventError
 
       if (eventError) throw eventError
 
